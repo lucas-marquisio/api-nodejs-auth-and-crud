@@ -6,6 +6,9 @@
   "author": "Lucas Marquisio <contato.lucasmarquisio@gmail.com>",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch"
+  },
   "devDependencies": {
     "eslint": "^8.22.0",
     "jest": "^28.1.3",
