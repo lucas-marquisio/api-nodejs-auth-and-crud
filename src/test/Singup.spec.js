@@ -12,4 +12,15 @@ describe('SignUp Service', () => {
     console.log(httpResponse)
     expect(httpResponse.statusCode).toBe(400)
   })
+
+  it('Should return 400 if no email is provided', async () => {
+    const httpRequest = {
+      name: 'any_name',
+      password: 'any_password',
+      passwordConfirmation: 'any_password'
+    }
+    const httpResponse = await SignUpService(httpRequest)
+    console.log(httpResponse)
+    expect(httpResponse.statusCode).toBe(400)
+  })
 })
