@@ -1,5 +1,6 @@
 import BadRequest from '../utils/errors/BadRequest'
 import EncryptPassword from '../utils/encrypt-password/encrypt'
+import GeneratorId from '../utils/generate-id'
 
 async function SignUpService (SingUpData) {
   const { name, email, password, passwordConfirmation } = SingUpData
@@ -11,14 +12,19 @@ async function SignUpService (SingUpData) {
   if (!passwordMatch) return BadRequest('password not equal passwordConfirmation')
 
   const UserData = {
+    id: GeneratorId(),
     name,
     email,
     password: await EncryptPassword(password)
   }
 
+  const body = {
+    message: 'User created!'
+  }
+
   return {
     statusCode: 200,
-    body: UserData
+    body
   }
 }
 
