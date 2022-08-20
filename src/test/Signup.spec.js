@@ -10,7 +10,6 @@ describe('SignUp Service', () => {
       passwordConfirmation: 'any_password'
     }
     const httpResponse = await SignUpService(httpRequest)
-    console.log(httpResponse)
     expect(httpResponse.statusCode).toBe(400)
   })
 
@@ -22,7 +21,6 @@ describe('SignUp Service', () => {
       passwordConfirmation: 'any_password'
     }
     const httpResponse = await SignUpService(httpRequest)
-    console.log(httpResponse)
     expect(httpResponse.statusCode).toBe(400)
   })
 
@@ -34,7 +32,6 @@ describe('SignUp Service', () => {
       passwordConfirmation: 'any_password'
     }
     const httpResponse = await SignUpService(httpRequest)
-    console.log(httpResponse)
     expect(httpResponse.statusCode).toBe(400)
   })
 
@@ -46,7 +43,6 @@ describe('SignUp Service', () => {
       passwordConfirmation: ''
     }
     const httpResponse = await SignUpService(httpRequest)
-    console.log(httpResponse)
     expect(httpResponse.statusCode).toBe(400)
   })
 })
