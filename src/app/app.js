@@ -1,3 +1,3 @@
-import app from './server'
+import server from './server.js'
 
-app.listen(3443, () => console.info('Server started!'))
+server.listen(3443, () => console.info('Server started!'))
