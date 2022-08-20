@@ -37,4 +37,16 @@ describe('SignUp Service', () => {
     console.log(httpResponse)
     expect(httpResponse.statusCode).toBe(400)
   })
+
+  it('Should return 400 if no password is provided', async () => {
+    const httpRequest = {
+      name: 'any_name',
+      email: 'any_email',
+      password: 'any_password',
+      passwordConfirmation: ''
+    }
+    const httpResponse = await SignUpService(httpRequest)
+    console.log(httpResponse)
+    expect(httpResponse.statusCode).toBe(400)
+  })
 })
