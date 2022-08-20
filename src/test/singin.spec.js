@@ -11,4 +11,13 @@ describe('SignIn Service', () => {
     const httpResponse = SignInService(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
   })
+
+  it('Should return 400 if no password is provided', () => {
+    const httpRequest = {
+      email: 'valid_email',
+      password: ''
+    }
+    const httpResponse = SignInService(httpRequest)
+    expect(httpResponse.statusCode).toBe(400)
+  })
 })
