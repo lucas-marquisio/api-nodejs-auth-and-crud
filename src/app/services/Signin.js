@@ -1,4 +1,6 @@
 import BadRequest from '../utils/errors/BadRequest'
+import GenerateTokenAuth from '../utils/token-auth/generate-token'
+import FindUser from '../repositories/find-user'
 
 async function SignInService (SignInData) {
   const { email, password } = SignInData
@@ -13,11 +15,22 @@ async function SignInService (SignInData) {
   if (!(mockUser.email === email)) return BadRequest('Email invalid.')
   if (!(mockUser.password === password)) return BadRequest('Password not match.')
 
+  const userFound = await FindUser(email)
+
+  delete userFound.password
+
+  const hourInMiliseconds = 3600000
+  const body = {
+    ...userFound,
+    token: await GenerateTokenAuth({
+      id: userFound.id,
+      exp: parseInt(hourInMiliseconds * 4)
+    })
+  }
+
   return {
     statusCode: 200,
-    body: {
-      token: 'my token'
-    }
+    body
   }
 }
 
