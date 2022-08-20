@@ -1,4 +1,5 @@
 import BadRequest from '../utils/errors/BadRequest'
+import EncryptPassword from '../utils/encrypt-password/encrypt'
 
 async function SignUpService (SingUpData) {
   const { name, email, password, passwordConfirmation } = SingUpData
@@ -9,9 +10,15 @@ async function SignUpService (SingUpData) {
   if (!password) return BadRequest('Missing param: password')
   if (!passwordMatch) return BadRequest('password not equal passwordConfirmation')
 
+  const UserData = {
+    name,
+    email,
+    password: await EncryptPassword(password)
+  }
+
   return {
     statusCode: 200,
-    body: null
+    body: UserData
   }
 }
 
