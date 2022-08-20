@@ -20,4 +20,14 @@ describe('SignIn Service', () => {
     const httpResponse = SignInService(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
   })
+
+  it('Should return 400 if email not exists', () => {
+    const httpRequest = {
+      email: 'invalid_email',
+      password: 'valid_password'
+    }
+    const httpResponse = SignInService(httpRequest)
+    expect(httpResponse.statusCode).toBe(400)
+    expect(httpResponse.body).toEqual('Email invalid.')
+  })
 })
