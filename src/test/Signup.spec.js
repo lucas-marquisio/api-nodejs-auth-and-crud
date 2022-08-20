@@ -45,4 +45,15 @@ describe('SignUp Service', () => {
     const httpResponse = await SignUpService(httpRequest)
     expect(httpResponse.statusCode).toBe(400)
   })
+
+  it('Should return 200 if register sucessful', async () => {
+    const httpRequest = {
+      name: 'valid_name',
+      email: 'valid_email',
+      password: 'valid_password',
+      passwordConfirmation: 'valid_password'
+    }
+    const httpResponse = await SignUpService(httpRequest)
+    expect(httpResponse.statusCode).toBe(200)
+  })
 })
