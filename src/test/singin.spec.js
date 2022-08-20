@@ -30,4 +30,14 @@ describe('SignIn Service', () => {
     expect(httpResponse.statusCode).toBe(400)
     expect(httpResponse.body).toEqual('Email invalid.')
   })
+
+  it('Should return 400 if password not match', () => {
+    const httpRequest = {
+      email: 'valid_email',
+      password: 'invalid_password'
+    }
+    const httpResponse = SignInService(httpRequest)
+    expect(httpResponse.statusCode).toBe(400)
+    expect(httpResponse.body).toEqual('Password not match.')
+  })
 })
