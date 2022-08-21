@@ -1,6 +1,6 @@
-import BadRequest from '../utils/errors/BadRequest'
-import EncryptPassword from '../utils/encrypt-password/encrypt'
-import GeneratorId from '../utils/generate-id'
+import BadRequest from '../utils/errors/BadRequest.js'
+import EncryptPassword from '../utils/encrypt-password/encrypt.js'
+import GeneratorId from '../utils/generate-id.js'
 
 async function SignUpService (SingUpData) {
   const { name, email, password, passwordConfirmation } = SingUpData

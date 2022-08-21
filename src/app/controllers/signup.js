@@ -1,4 +1,4 @@
-import SignUpService from '../services/Signup'
+import SignUpService from '../services/Signup.js'
 
 async function SignUpController (req, res) {
   try {
