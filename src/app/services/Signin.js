@@ -1,6 +1,6 @@
-import BadRequest from '../utils/errors/BadRequest'
-import GenerateTokenAuth from '../utils/token-auth/generate-token'
-import FindUser from '../repositories/find-user'
+import BadRequest from '../utils/errors/BadRequest.js'
+import GenerateTokenAuth from '../utils/token-auth/generate-token.js'
+import FindUser from '../repositories/find-user.js'
 
 async function SignInService (SignInData) {
   const { email, password } = SignInData
